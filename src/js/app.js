@@ -104,6 +104,7 @@ App = {
             electionInstance = instance;
             window.instance = instance;
             console.log("election address = ", window.instance.address);
+            console.log("** electionInstance", electionInstance);
             return electionInstance.candidatesCount();
         }).then(async function(candidatesCount) {
             var candidatesResults = $("#candidatesResults");
@@ -115,6 +116,7 @@ App = {
             var candidatesPromises = [];
             for (var i = 1; i <= candidatesCount; i++) {
                 candidatesPromises.push(electionInstance.candidates(i));
+                console.log(`** ${i}`, electionInstance.candidates(i));
             }
 
             const candidates = await Promise.all(candidatesPromises);
@@ -229,9 +231,10 @@ App = {
         var candidateName = $('#new-candidate-name').val();
         App.contracts.Election.deployed().then((function(instance) {
             return instance.addCandidate(candidateName, { from: App.account })
-        })).then(() => {
+        })).then((result) => {
             $("#alertMessage").text("Candidate added successfully!");
             $("#alertMessage").show();
+            console.log('** result', result);
             return App.render();
         }).catch((function(err) {
             console.error(err);

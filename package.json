@@ -9,7 +9,9 @@
   "scripts": {
     "ganache": "ganache-cli -p 7545 -i 5777 -q > rr.txt",
     "dev": "lite-server",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "traffule-migrate": "truffle migrate",
+    "traffule-reset": "truffle migrate --reset"
   },
   "author": "",
   "license": "ISC",

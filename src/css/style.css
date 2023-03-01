@@ -1,7 +1,8 @@
 
 body::after {
     content: "";
-    background-image: url(https://img.mako.co.il/2021/01/14/DAFNA_W_autoOrient_i.jpg);
+    background-image: url(https://opinionstage-res.cloudinary.com/image/upload/c_lfill,dpr_auto,f_auto,fl_lossy,q_auto:good,w_auto/v1/polls/sx8uqwanencgclb9iyat);
+    background-color: azure;
     background-size: cover;
     background-repeat: no-repeat;
     opacity: 0.5;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,46 +8,82 @@
     <link href="css/adminCss.css" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
     <div id="adminPage">
         <h2>Admin dashboard</h2>
-        <div id='admin-dashboard'>
-            <a href="./index.html">
-                <button style="color: black;">חזרה למסך הבחירות</button>
-            </a>
-        </div>
-            <form id='add-candidate' onSubmit="App.addCandidate(); return false">
-                <div class='form-group'>
-                    <label for='new-candidate-name'>Candidate name</label>
-                    <input type='text' class='form-control' id='new-candidate-name'>
-                </div>
-                <button type="submit" class="btn btn-primary">Add candidate</button>
-            </form>
-            <form id='set-voting-window' onSubmit="App.setVotingWindow(); return false">
-                <div class='form-group'>
-                    <label for='set-voting-window-from'>From</label>
-                    <input type='datetime-local' class='form-control' id='set-voting-window-from'>
-                </div>
-                <div class='form-group'>
-                    <label for='set-voting-window-to'>To</label>
-                    <input type='datetime-local' class='form-control' id='set-voting-window-to'>
-                </div>
-                <button type="submit" class="btn btn-primary">Set voting window</button>
-            </form>
-            <form id='submit-voters-file' onSubmit="App.submitVotersFile(); return false">
-                <button type="submit" class="btn btn-primary fileButton">generate voters from file</button>
-                <select id="selectUser" style="display: none; margin-top: 40px;" class="btn btn-primary">
-                    <option selected disabled>Voters Book</option>
-                </select>
-            </form>
-            
 
+        <div class="panel panel-default">
+            <div class="panel-heading panel-heading-nav">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active">
+                        <a href="#one" aria-controls="one" role="tab" data-toggle="tab">Add New Candidate</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#two" aria-controls="two" role="tab" data-toggle="tab">Set Election Dates</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#three" aria-controls="three" role="tab" data-toggle="tab">Generate Votes</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="./index.html" >Back to Main</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="panel-body">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="one">
+                        <p>Please add new candidate to the blockchanin</p>
+                        <form id='add-candidate' onSubmit="App.addCandidate(); return false">
+                            <div class='form-group'>
+                                <label for='new-candidate-name'>Candidate name</label>
+                                <input type='text' class='form-control' id='new-candidate-name'>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add candidate</button>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="two">
+                        <form id='set-voting-window' onSubmit="App.setVotingWindow(); return false">
+                            <div class='form-group'>
+                                <label for='set-voting-window-from'>From</label>
+                                <input type='datetime-local' class='form-control' id='set-voting-window-from'>
+                            </div>
+                            <div class='form-group'>
+                                <label for='set-voting-window-to'>To</label>
+                                <input type='datetime-local' class='form-control' id='set-voting-window-to'>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Set voting window</button>
+                        </form>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="three">
+                        <form id='submit-voters-file' onSubmit="App.submitVotersFile(); return false">
+                            <button type="submit" class="btn btn-primary fileButton">generate voters from file</button>
+                            <select id="selectUser" style="display: none; margin-top: 40px;" class="btn btn-primary">
+                                <option selected disabled>Voters Book</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
+
+        <div id="alertMessage" class="alert alert-success" role="alert">Success alert</div>
+       
+
+
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="js/web3.min.js"></script>
     <script src="js/truffle-contract.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        $( document ).ready(function(){
+            $("#alertMessage").hide();
+
+        });
+    </script>
 </body>
+
 </html>

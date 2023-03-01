@@ -230,6 +230,8 @@ App = {
         App.contracts.Election.deployed().then((function(instance) {
             return instance.addCandidate(candidateName, { from: App.account })
         })).then(() => {
+            $("#alertMessage").text("Candidate added successfully!");
+            $("#alertMessage").show();
             return App.render();
         }).catch((function(err) {
             console.error(err);

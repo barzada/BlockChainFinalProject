@@ -1,0 +1,16 @@
+
+body::after {
+    content: "";
+    background-image: url(https://img.mako.co.il/2021/01/14/DAFNA_W_autoOrient_i.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.5;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1;   
+  }
+
+ 

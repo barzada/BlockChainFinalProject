@@ -26,7 +26,7 @@
                         <a href="#three" aria-controls="three" role="tab" data-toggle="tab">Generate Votes</a>
                     </li>
                     <li role="presentation">
-                        <a href="./index.html" >Back to Main</a>
+                        <a href="./index.html">Back to Main</a>
                     </li>
                 </ul>
             </div>
@@ -43,6 +43,7 @@
                         </form>
                     </div>
                     <div role="tabpanel" class="tab-pane fade" id="two">
+                        <p id="timer" style="color: black;"></p>
                         <form id='set-voting-window' onSubmit="App.setVotingWindow(); return false">
                             <div class='form-group'>
                                 <label for='set-voting-window-from'>From</label>
@@ -68,7 +69,7 @@
         </div>
 
         <div id="alertMessage" class="alert alert-success" role="alert">Success alert</div>
-       
+
 
 
     </div>
@@ -79,7 +80,7 @@
     <script src="js/truffle-contract.js"></script>
     <script src="js/app.js"></script>
     <script>
-        $( document ).ready(function(){
+        $(document).ready(function () {
             $("#alertMessage").hide();
 
         });

@@ -33,10 +33,10 @@ contract Election {
     constructor(DappToken _tokensContract) public {
         tokensContract = _tokensContract;
         owner = msg.sender;
-        addCandidate("Binyamin Neyanyahu");
-        addCandidate("Gidon Saar");
-        addCandidate("Yair Lapid");
-        addCandidate("Naftali Bennet");
+        addCandidate("Licud");
+        addCandidate("Haavoda");
+        addCandidate("Hmahane hammlachti");
+        addCandidate("Yesh Atid");
     }
 
     modifier onlyOwner() {

@@ -34,23 +34,42 @@ function tabulateAnswers() {
     var maxscore = Math.max(c1score,c2score,c3score,c4score);
     
     // Display answer corresponding to that choice
-    var answerbox = document.getElementById('answer');
+    //var answerbox = document.getElementById('answer');
     if (c1score == maxscore) { // If user chooses the first choice the most, this outcome will be displayed.
-      answerbox.innerHTML = "אתה ימיני- בחר במחל.";
+      console.log("אתה ימיני- בחר במחל.");
+      //answerbox.innerHTML = "אתה ימיני- בחר במחל.";
+      $('#candidatesSelect').val(1);
     }
     if (c2score == maxscore) { // If user chooses the second choice the most, this outcome will be displayed.
-      answerbox.innerHTML = "אתה מרכז- המחנה הממלכתי";
+      //answerbox.innerHTML = "אתה מרכז- המחנה הממלכתי";
+      console.log("אתה מרכז- המחנה הממלכתי");
+      $('#candidatesSelect').val(2);
     }
     if (c3score == maxscore) { // If user chooses the third choice the most, this outcome will be displayed.
-      answerbox.innerHTML = "אתה שמאל-העבודה תהיה הבחירה הנכונה";
+      //answerbox.innerHTML = "אתה שמאל-העבודה תהיה הבחירה הנכונה";
+      $('#candidatesSelect').val(3);
     }
     if (c4score == maxscore) { // If user chooses the fourth choice the most, this outcome will be displayed.
-      answerbox.innerHTML = "אתה לא החלטי, עזוב";
+      //answerbox.innerHTML = "אתה נוטה לימין מרכז- יש עתיד";
+      $('#candidatesSelect').val(4);
     }
+
+    
+
   }
   
   // program the reset button
   function resetAnswer() {
     var answerbox = document.getElementById('answer');
     answerbox.innerHTML = "הבחירה הנכונה תופיע פה";
+  }
+
+  function submitAnnonimousVote(){
+    tabulateAnswers();
+    var res = confirm('האם אתה בטוח שברצונך להצביע בצורה אנונימית?');
+    if(res){
+      App.castVote();
+      location.href = "index.html";
+    }
+    return false;
   }

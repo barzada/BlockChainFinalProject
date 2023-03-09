@@ -10,8 +10,8 @@
     "ganache": "ganache-cli -p 7545 -i 5777 -q > rr.txt",
     "dev": "lite-server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "traffule-migrate": "truffle migrate",
-    "traffule-reset": "truffle migrate --reset"
+    "truffle-migrate": "truffle migrate",
+    "truffle-reset": "truffle migrate --reset"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +20,7 @@
   },
   "dependencies": {
     "@openzeppelin/contracts": "^2.5.0",
-    "ganache-cli": "^6.12.2"
+    "ganache-cli": "^6.12.2",
+    "truffle": "^5.7.9"
   }
 }

@@ -4,15 +4,12 @@ var ethJSABI = require("ethjs-abi");
 var BlockchainUtils = require("truffle-blockchain-utils");
 var Web3 = require("web3");
 
-// For browserified version. If browserify gave us an empty version,
-// look for the one provided by the user.
 if (typeof Web3 == "object" && Object.keys(Web3).length == 0) {
   Web3 = global.Web3;
 }
 
 var contract = (function(module) {
 
-  // Planned for future features, logging, etc.
   function Provider(provider) {
     this.provider = provider;
   }
@@ -93,7 +90,6 @@ var contract = (function(module) {
         Object.keys(copy.args).forEach(function(key) {
           var val = copy.args[key];
 
-          // We have BN. Convert it to BigNumber
           if (val.constructor.isBN) {
             copy.args[key] = C.web3.toBigNumber("0x" + val.toString(16));
           }
@@ -116,7 +112,6 @@ var contract = (function(module) {
         var tx_params = {};
         var last_arg = args[args.length - 1];
 
-        // It's only tx_params if it's an object and not a BigNumber.
         if (Utils.is_object(last_arg) && !Utils.is_big_number(last_arg)) {
           tx_params = args.pop();
         }
@@ -145,7 +140,6 @@ var contract = (function(module) {
         var tx_params = {};
         var last_arg = args[args.length - 1];
 
-        // It's only tx_params if it's an object and not a BigNumber.
         if (Utils.is_object(last_arg) && !Utils.is_big_number(last_arg)) {
           tx_params = args.pop();
         }

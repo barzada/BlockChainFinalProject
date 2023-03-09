@@ -12,35 +12,35 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
+   
 </head>
 <body >
 
-    <p id="timer" style="margin: auto; font-size: 50px; text-align: center;"></p>
+    <p id="timer" style="margin: auto; font-size: 30px; text-align: center;"></p>
 
 
-    <div class="container" style="width: 900px  ; text-align: center; ; ">
+    <div class="container" style="width: 900px  ; text-align: center;  ">
 
         <div class="row">
             <div class="col-lg-12">
-                <p id="accountAddress" class="text-center h3"></p>
+                <p id="accountAddress" style="width: 900px  ; text-align: center; " class="text-center h3"></p>
                 <hr/>
                 <br/>
                 <div id="loader">
                     <p class="text-center">Loading...</p>
                 </div>
-                <div id="content" class="page-header" style="display: none;font-size: 25px  ;">
+                <div id='admin-dashboard'>
+                    <a href="./admin.html" style="font-size: 20px;color: rgb(31, 13, 233); text-align: center; ; ">
+                    admin manager
+                    </a>
+                </div>
+                <div id="content" class="page-header" style="display: none;font-size: 18px  ;">
                     <table class="table" style="z-index: 9999; color: rgb(41, 41, 41);">
                         <thead>
                             <tr>
-                                <th scope="col">#</th>
+                                <th scope="col">מס"ד</th>
                                 <th scope="col"></th>
-                                <th scope="col" class="text-center">מועמד</th>
+                                <th scope="col" class="text-center">מפלגה</th>
                                 <th scope="col" class="text-center">מס' קולות</th>
                             </tr>
                         </thead>
@@ -53,7 +53,11 @@
                             <label for="candidatesSelect">Select Candidate</label>
                             <select class="form-control" id="candidatesSelect"></select>
                         </div>
-                        <button id="vote" type="submit" class="btn btn-primary">Vote</button>
+                        <button id="vote" type="submit" class="button btn btn-primary">בצע הצבעה</button>
+                        <a href="./questionnaire.html" class="button btn btn-primary">
+                            בחירת מועמד לפי שאלון התאמה
+                        </a>
+    
                         <hr />
                     </form>
                     <div id='voting-disabled-warning' style="color: rgb(216, 0, 0);">
@@ -65,15 +69,8 @@
                     <div id='window-not-set-warning' style="color: rgb(216, 0, 0);">
                         טרם נפתח חלון הצבעה
                     </div>
-                    <a href="./questionnaire.html">
-                        <button style="color: black;">בחירת מועמד לפי שאלון התאמה</button>
-                    </a>
-
-                    <div id='admin-dashboard'>
-                        <a href="./admin.html">
-                            <button style="color: black;">הגדרות מנהל</button>
-                        </a>
-                    </div>
+                    
+                    
                 </div>
             </div>
         </div>

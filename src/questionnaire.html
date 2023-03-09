@@ -1,109 +1,115 @@
 <!DOCTYPE html>
+<html dir="rtl" lang="ar">
 
 <head>
-    <link rel="stylesheet" href="./css/questionnaire.css">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/questionnaire.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/questionnaire.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/truffle-contract.js"></script>
+  <script src="js/app.js"></script>
 </head>
-<html dir="rtl" lang="ar">
-  <p id="timer" style="margin: auto; font-size: 50px; text-align: center;"></p>
 
-<script src="js/questionnaire.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/web3.min.js"></script>
-    <script src="js/truffle-contract.js"></script>
-    <script src="js/app.js"></script>
+<body>
+ <p id="timer" style="margin: auto; font-size: 30px; text-align: center;"></p>
+
+
 
 <div id="wrapper">
-    <a href="./index.html">
-        <button style="color: black;">חזרה לתפריט הראשי</button>
-    </a>
-    <h1>איזה מפלגה אתה?</h1>
-    <p>ענה על שאלון בשביל לדעת</p>
-    
-    <form id="quiz">
-      <!-- Question 1 -->
-      <h2>האם יש לאפשר לפוליטיקאי שהורשע בעבר בביצוע פשע להתמודד לתפקיד?
-        </h2>
-      <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
-      <!-- The value is which answer the choice corresponds to. -->
-      <label><input type="radio" name="q1" value="c1">
-        כן, כל עוד הפשע לא בוצע במהלך כהונתם בתפקיד
-      </label><br />
-      <label><input type="radio" name="q1" value="c2">
-        לא, ויש לאסור זאת על פוליטיקאים שנמצאים בחקירה בחשד לביצוע פשע
-      </label><br />
-      <label><input type="radio" name="q1" value="c3">
-        כן, כל עוד הם סיימו לרצות את עונשם
-      </label><br />
-      <label><input type="radio" name="q1" value="c4">
-        לא, מסיבה אחרת
-      </label><br />
-  
-      <!-- Question 2 -->
-      <h2>האם על הלימודים באוניברסיטאות להיות חינם?
-        ?</h2>
-      <!-- Here are the choices for the second question. Notice how each input tag has the same name (q2), but a different name than the previous question. -->
-      <label><input type="radio" name="q2" value="c1">
-        כן, דמי הלימוד היום גבוהים מדי
-      </label><br />
-      <label><input type="radio" name="q2" value="c2">
-        לא, אבל חינם לסטודנטים מצטיינים בעל הכנסה נמוכה
-      </label><br />
-      <label><input type="radio" name="q2" value="c3">
-        לא, אבל יש להפחית את דמי הלימוד בהתאם להכנסת המשפחה
-      </label><br />
-      <label><input type="radio" name="q2" value="c4">
-       לא, אחר
-      </label><br />
-      
-      <!-- Question 3 -->
-      <h2>האם יש לאסור בחוק על שריפת דגל ישראל??</h2>
-      <!-- Choices for the third question -->
-      <label><input type="radio" name="q3" value="c1">
-        לא, זו הפרה של חופש הדיבור
-      </label><br />
-      <label><input type="radio" name="q3" value="c2">
-        כן, ויש לאסור בחוק שרפת דגל של כל מדינה
-      </label><br />
-      <label><input type="radio" name="q3" value="c3">
-        כן
-      </label><br />
-      <label><input type="radio" name="q3" value="c4">
-        לא, אין בי כבוד כלפי מי ששורף דגל אבל זכותו לעשות זאת
-      </label><br />
-      
-      <!-- Question 4 -->
-      <h2>האם את/ה בעד ליגליזציה של נישואים חד-מיניים?</h2>
-      <!-- Choices for the fourth question -->
-      <label><input type="radio" name="q4" value="c1">
-        לא, להתיר הסכמים אזרחיים אבל לא לקרוא לזה נישואים
+  <a href="./index.html" class="btn btn-link">
+    חזרה לתפריט הראשי
+  </a>
+  <h1>איזה מפלגה אתה?</h1>
+  <p>ענה על שאלון בשביל לדעת</p>
+
+  <form id="quiz">
+    <!-- Question 1 -->
+    <h2>האם יש לאפשר לפוליטיקאי שהורשע בעבר בביצוע פשע להתמודד לתפקיד?
+    </h2>
+    <!-- Here are the choices for the first question. Each input tag must have the same name. For this question, the name is q1. -->
+    <!-- The value is which answer the choice corresponds to. -->
+    <label><input type="radio" name="q1" value="c1">
+      כן, כל עוד הפשע לא בוצע במהלך כהונתם בתפקיד
     </label><br />
-      <label><input type="radio" name="q4" value="c2">
-       כן, אבל לא לחייב רבנים 
-      </label><br />
-      <label><input type="radio" name="q4" value="c3">
-        לא, נישואים יש להגדיר כבין גבר ואישה
-      </label><br />
-      <label><input type="radio" name="q4" value="c4">
-        כן,זכותם לחיות כרצונם
-      </label><br />
-      
-      <button type="button" id="submit" onclick="tabulateAnswers()">שלח</button>
+    <label><input type="radio" name="q1" value="c2">
+      לא, ויש לאסור זאת על פוליטיקאים שנמצאים בחקירה בחשד לביצוע פשע
+    </label><br />
+    <label><input type="radio" name="q1" value="c3">
+      כן, כל עוד הם סיימו לרצות את עונשם
+    </label><br />
+    <label><input type="radio" name="q1" value="c4">
+      לא, מסיבה אחרת
+    </label><br />
 
-    <button type="reset" id="reset" onclick="resetAnswer()">נקה</button>
-  
-    </form>
+    <!-- Question 2 -->
+    <h2>האם על הלימודים באוניברסיטאות להיות חינם?
+      ?</h2>
+    <!-- Here are the choices for the second question. Notice how each input tag has the same name (q2), but a different name than the previous question. -->
+    <label><input type="radio" name="q2" value="c1">
+      כן, דמי הלימוד היום גבוהים מדי
+    </label><br />
+    <label><input type="radio" name="q2" value="c2">
+      לא, אבל חינם לסטודנטים מצטיינים בעל הכנסה נמוכה
+    </label><br />
+    <label><input type="radio" name="q2" value="c3">
+      לא, אבל יש להפחית את דמי הלימוד בהתאם להכנסת המשפחה
+    </label><br />
+    <label><input type="radio" name="q2" value="c4">
+      לא, אחר
+    </label><br />
 
-    <form id="chooseForm" onSubmit="App.castVote(); return false; ">
-      <div class="form-group">
-          <label for="candidatesSelect">Select Candidate</label>
-          <select class="form-control" id="candidatesSelect"></select>
-      </div>
-      <button id="vote" type="submit" class="btn btn-primary">Vote</button>
-      <hr />
+    <!-- Question 3 -->
+    <h2>האם יש לאסור בחוק על שריפת דגל ישראל??</h2>
+    <!-- Choices for the third question -->
+    <label><input type="radio" name="q3" value="c1">
+      לא, זו הפרה של חופש הדיבור
+    </label><br />
+    <label><input type="radio" name="q3" value="c2">
+      כן, ויש לאסור בחוק שרפת דגל של כל מדינה
+    </label><br />
+    <label><input type="radio" name="q3" value="c3">
+      כן
+    </label><br />
+    <label><input type="radio" name="q3" value="c4">
+      לא, אין בי כבוד כלפי מי ששורף דגל אבל זכותו לעשות זאת
+    </label><br />
+
+    <!-- Question 4 -->
+    <h2>האם את/ה בעד ליגליזציה של נישואים חד-מיניים?</h2>
+    <!-- Choices for the fourth question -->
+    <label><input type="radio" name="q4" value="c1">
+      לא, להתיר הסכמים אזרחיים אבל לא לקרוא לזה נישואים
+    </label><br />
+    <label><input type="radio" name="q4" value="c2">
+      כן, אבל לא לחייב רבנים
+    </label><br />
+    <label><input type="radio" name="q4" value="c3">
+      לא, נישואים יש להגדיר כבין גבר ואישה
+    </label><br />
+    <label><input type="radio" name="q4" value="c4">
+      כן,זכותם לחיות כרצונם
+    </label><br />
+
+    <button type="button" class="btn btn-primary" onclick="submitAnnonimousVote()">שלח</button>
+
+    <button type="reset" id="reset" class="btn btn-secondary" onclick="resetAnswer()">נקה</button>
+
   </form>
-    
-    
-    <div id="answer">התוצאות יופיעו פה!</div>
-  </div>
+
+  <form id="chooseForm" style="visibility: hidden;" onSubmit="App.castVote(); return false; ">
+    <div class="form-group">
+      <label for="candidatesSelect">Select Candidate</label>
+      <select class="form-control" id="candidatesSelect"></select>
+    </div>
+    <button id="vote" type="submit" class="btn btn-primary">Vote</button>
+    <hr />
+  </form>
+</div>
+ 
+</body>
+
+
+</html>

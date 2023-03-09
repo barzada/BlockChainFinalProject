@@ -2,25 +2,25 @@ App = {
     web3Provider: null,
     contracts: {},
     account: '0x0',
-    hasVoted: false,
+    voted: false,
 
 
     init: function() {
-        return App.initWeb3();
+        return App.web3initialization();
     },
 
-    initWeb3: async function() {
+    web3initialization: async function() {
         if (window.ethereum) {
           App.web3Provider = window.ethereum;
           try {
             // Request account access
             await window.ethereum.enable();
           } catch (error) {
-            // User denied account access...
+            //  denied access
             console.error("User denied account access")
           }
         }
-        // Legacy dapp browsers...
+        // Legacy dapp browsers
         else if (window.web3) {
           App.web3Provider = window.web3.currentProvider;
         }
@@ -30,10 +30,10 @@ App = {
         }
         web3 = new Web3(App.web3Provider);
     
-        return App.initContract();
+        return App.contractInitialization();
       },
 
-    initContract: function() {
+    contractInitialization: function() {
         $.getJSON("DappToken.json", function(DappToken) {
             // Instantiate a new truffle contract from the artifact
             App.contracts.DappToken = TruffleContract(DappToken);
@@ -46,7 +46,7 @@ App = {
                 // Connect provider to interact with contract
                 App.contracts.Election.setProvider(App.web3Provider);
 
-                App.listenForEvents();
+                App.eventListener();
 
                 return App.render();
             });
@@ -55,7 +55,7 @@ App = {
     },
 
     // Listen for events emitted from the contract
-    listenForEvents: function() {
+    eventListener: function() {
         App.contracts.Election.deployed().then(function(instance) {
 
             instance.votedEvent({}, {
@@ -63,8 +63,7 @@ App = {
                 toBlock: 'latest'
             }).watch(function(error, event) {
                 console.log("event triggered", event)
-                    // Reload when a new vote is recorded
-                    //App.render();
+                   
             });
         });
 
@@ -85,13 +84,12 @@ App = {
         votingEndedWarning.hide();
         windowNotSetWarning.hide();
 
-        //  $('#submit-voters-file-input').on('change', readFile);
-
-        // Load account data
+        
+        // data load
         web3.eth.getCoinbase(function(err, account) {
             if (err === null) {
                 App.account = account;
-                $("#accountAddress").html("Hello " + account);
+                $("#accountAddress").html("user " + account);
             }
         });
 
@@ -139,9 +137,9 @@ App = {
                 candidatesSelect.append(candidateOption);
             })
             return electionInstance.voters(App.account);
-        }).then(function(hasVoted) {
+        }).then(function(voted) {
             // Do not allow a user to vote
-            if (hasVoted) {
+            if (voted) {
                 $('#chooseForm').hide();
             }
             loader.hide();
@@ -375,8 +373,8 @@ function setTimerWithTime(endElectionTime) {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Display the result in the element with id="demo"
-        document.getElementById("timer").innerHTML = days + "d " + hours + "h " +
-            minutes + "m " + seconds + "s Left to vote";
+        document.getElementById("timer").innerHTML = days + "days " + hours + "hours " +
+            minutes + "minutes " + seconds + "seconds left";
 
         // If the count down is finished, write some text
         if (distance < 0) {

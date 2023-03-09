@@ -1,0 +1,28 @@
+#adminPage{
+    width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+h2{
+    margin-top: 45px;
+    margin-bottom: 50px;
+}
+
+
+
+ button{
+        font-size: 18px;
+        padding: 15px;
+        border-bottom: 3px solid #333;
+        border: 1px dashed #ccc;
+        background: rgb(14, 14, 14);
+        padding: 10px;
+        margin: 25px 0;
+        color: white;
+        border-radius: 10px;
+      }
+
+.fileButton{
+    display: inline-block;
+}

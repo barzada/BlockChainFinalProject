@@ -14,4 +14,18 @@ body::after {
     z-index: -1;   
   }
 
+
+  
+ .button{
+  font-size: 18px;
+  padding: 10px;
+  margin: 20px 0;
+  color: white;
+  border-radius: 10px;
+  border-bottom: 3px solid #333;
+  border: 1px dashed #ccc;
+  background: rgb(7, 50, 243);
+  padding: 10px;
+}
+
  

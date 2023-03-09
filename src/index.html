@@ -23,7 +23,7 @@
 
         <div class="row">
             <div class="col-lg-12">
-                <p id="accountAddress" style="width: 900px  ; text-align: center; " class="text-center h3"></p>
+                <h3><span id="accountAddress" style="margin: auto; font-size: 20px; text-align: center;" class="badge badge-pill badge-info text-center"></span></h3>
                 <hr/>
                 <br/>
                 <div id="loader">
@@ -48,17 +48,17 @@
                         </tbody>
                     </table>
                     <hr/>
-                    <form id="chooseForm" onSubmit="App.castVote(); return false; ">
+                    <form id="chooseForm" style="text-align: left;" onSubmit="App.castVote(); return false; ">
                         <div class="form-group">
                             <label for="candidatesSelect">Select Candidate</label>
-                            <select class="form-control" id="candidatesSelect"></select>
+                            <select class="form-control" style="width: 200px; overflow-y: auto;" size="4" id="candidatesSelect"></select>
                         </div>
                         <button id="vote" type="submit" class="button btn btn-primary">בצע הצבעה</button>
                         <a href="./questionnaire.html" class="button btn btn-primary">
                             בחירת מועמד לפי שאלון התאמה
                         </a>
     
-                        <hr />
+                        
                     </form>
                     <div id='voting-disabled-warning' style="color: rgb(216, 0, 0);">
                         ההצבעה תתחיל בהמשך

@@ -129,7 +129,7 @@ App = {
 
 
                 // Render candidate Result
-                var candidateTemplate = "<tr><th>" + (idx + 1) + "</th><td>" + image + "</td><td><strong>" + name + "</strong></td><td>" + voteCount + "</td></tr>"
+                var candidateTemplate = "<tr><th>" + (idx + 1) + "</th><td>" + image + "</td><td><strong>" + name + "</strong></td><td><span class='label label-success'>" + voteCount + "</span></td></tr>"
                 candidatesResults.append(candidateTemplate);
 
                 // Render candidate ballot option
@@ -373,8 +373,8 @@ function setTimerWithTime(endElectionTime) {
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
         // Display the result in the element with id="demo"
-        document.getElementById("timer").innerHTML = days + "days " + hours + "hours " +
-            minutes + "minutes " + seconds + "seconds left";
+        document.getElementById("timer").innerHTML = days + " days " + hours + " hours " +
+            minutes + " minutes " + seconds + " seconds left";
 
         // If the count down is finished, write some text
         if (distance < 0) {
